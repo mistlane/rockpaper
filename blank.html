@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+    </head>
+    <body>
+        <script>
+            
+            let computerplay = comp()
+            function comp() {
+                kaka = Math.floor(Math.random() * 3);  
+                if (kaka == 0) { return "rock"}
+                else if (kaka == 1) { return "paper"}
+                else {return "scissors"}
+            }
+
+            console.log(computerplay)
+            
+            playerselection = prompt("Your selection: ")
+
+            let singleround = sround(playerselection, computerplay)
+
+            function sround(playerselection, computerplay) {
+                if (playerselection == "rock" && computerplay == "scissors") {
+                    message = "You won! Rock beats scissors!"
+                winner = "player"
+                }
+                else if (playerselection == computerplay) {
+                    message = "It's a tie!"
+                winner = "tie"
+                }
+                else if (playerselection == "paper" && computerplay == "rock") {
+                    message = "You won! Paper beats rock!"
+                winner = "player"
+                }
+
+                else if (playerselection == "scissors" && computerplay == "paper") {
+                    message = "You won! Scissors beats paper"
+                winner = "player"
+                }
+
+                else { message = "You lost you fucking twat!"
+                winner = "computer" }
+                return winner
+                console.log(message)
+            }
+
+            
+            function game() {
+                let i = 1 
+                while (i < 6) {
+                    computerplay = comp()
+                    playerselection = prompt("Your selection: ")
+                    who = sround(playerselection, computerplay)
+                    console.log("Winner of game " + i + " is " + who )
+                    i = i + 1
+                }
+
+            }
+            game()
+        </script>
+    </body>
+</html>
